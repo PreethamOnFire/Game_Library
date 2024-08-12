@@ -10,6 +10,8 @@
                 <ResourceDictionary Source="Styles/TextblockStyles.xaml"/>
                 <ResourceDictionary Source="Styles/TextBoxStyles.xaml"/>
                 <ResourceDictionary Source="Styles/CheckBoxStyles.xaml"/>
+                <ResourceDictionary Source="Styles/ScrollViewerStyles.xaml"/>
+                <ResourceDictionary Source="Styles/ListViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

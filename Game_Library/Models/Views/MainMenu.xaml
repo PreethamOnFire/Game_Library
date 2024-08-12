@@ -12,13 +12,13 @@
             <RowDefinition/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Background="#282828" HorizontalScrollBarVisibility="Disabled">
-            <ListView ItemsSource="{Binding MenuGameObjs}" SelectedItem="{Binding SelectedGame}" Background="#282828">
+        <ScrollViewer Background="#282828" HorizontalScrollBarVisibility="Disabled" Template="{DynamicResource ScrollViewerTemplate1}">
+            <ListView Template="{DynamicResource ListViewTemplate1}" ItemsSource="{Binding MenuGameObjs}" SelectedItem="{Binding SelectedGame}" Background="#282828" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        
-                            <Border Height="230" Width="185" Margin="0 0 0 0" Padding="10" BorderBrush="LightSteelBlue" HorizontalAlignment="Left">
-                                <Grid>
+
+                        <Border Height="230" Width="185" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
+                            <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="170"/>
                                         <RowDefinition Height="50"/>
@@ -32,7 +32,7 @@
                 </ListView.ItemTemplate>
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel/>
+                        <WrapPanel MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ScrollViewer}}" Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
             </ListView>

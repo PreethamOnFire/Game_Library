@@ -12,9 +12,9 @@
             <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <!--Menu Bar-->
-        
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -27,16 +27,16 @@
             <Button Template="{DynamicResource ButtonTemplate1}" Name="delGame" Grid.Column="2" Content="Delete" Width="80" Click="delGame_Click"/>
             <Button Template="{DynamicResource ButtonTemplate1}" Name="saveGame" Grid.Column="3" Content="Save" Width="80" Click="saveGame_Click"/>
         </Grid>
-        
+
         <!-- Game List -->
-        
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <ScrollViewer>
+            <ScrollViewer Template="{DynamicResource ScrollViewerTemplate1}">
                 <ListView ItemsSource="{Binding GameObjs}" SelectedItem="{Binding SelectedGame}" Background="#282828">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -48,7 +48,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Image Source="{Binding logoPath}" Height="15" Width="15"/>
                                 <TextBlock Grid.Column="1" Text="{Binding Name}" Padding="10"/>
-                                <CheckBox Grid.Column="2" IsChecked="{Binding isFinished}"/>
+                                <CheckBox Style="{DynamicResource CheckBoxStyle1}" Grid.Column="2" IsChecked="{Binding isFinished}"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -59,15 +59,19 @@
                     </ListView.ItemsPanel>
                 </ListView>
             </ScrollViewer>
-            
+
             <!-- Main Content -->
-            
+
             <Grid Grid.Column="1">
-                <Frame x:Name="Main" Grid.Row="1"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="167*"/>
+                </Grid.RowDefinitions>
+                <Frame x:Name="Main" Grid.RowSpan="2"/>
             </Grid>
-            
+
             <!-- Adding Games Menu -->
-            
+
             <Expander Grid.Column="2" ExpandDirection="Left">
                 <Grid>
                     <Grid Width="200">
@@ -86,8 +90,8 @@
                     </Grid>
                 </Grid>
             </Expander>
-            
-            
+
+
         </Grid>
     </Grid>
 </Window>

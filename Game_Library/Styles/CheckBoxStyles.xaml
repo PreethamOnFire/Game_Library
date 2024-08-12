@@ -3,7 +3,9 @@
     <Style TargetType="CheckBox">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Background" Value="#1a1625"/>
+        <Setter Property="Background" Value="#7a5af5"/>
+        <Setter Property="Foreground" Value="#121212"/>
+        <Setter Property="BorderBrush" Value="#121212"/>
     </Style>
-    
+
 </ResourceDictionary>
