@@ -8,4 +8,21 @@
         <Setter Property="FontWeight" Value="Medium"/>
     </Style>
 
+    <Style TargetType="TextBlock" x:Key="playButtonText">
+        <Setter Property="Foreground" Value="#6ede8a"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="gameText">
+        <Setter Property="Foreground" Value="#ba9ffb"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="50"/>
+        <Setter Property="FontWeight" Value="Heavy"/>
+        <Setter Property="Margin" Value="10 10 10 10"/>
+    </Style>
+
 </ResourceDictionary>

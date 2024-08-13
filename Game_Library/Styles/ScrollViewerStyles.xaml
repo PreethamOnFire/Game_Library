@@ -4,6 +4,11 @@
     <Style TargetType="ScrollViewer">
     </Style>
 
+    <Style TargetType="ScrollBar">
+        <Setter Property="Background" Value="#8b8b8b"/>
+        <Setter Property="Foreground" Value="#2f2b3a"/>
+    </Style>
+
     <ControlTemplate x:Key="ScrollViewerTemplate1" TargetType="{x:Type ScrollViewer}">
         <Grid x:Name="Grid" Background="{TemplateBinding Background}">
             <Grid.ColumnDefinitions>
@@ -20,4 +25,6 @@
             <ScrollBar x:Name="PART_HorizontalScrollBar" AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
         </Grid>
     </ControlTemplate>
+    
+
 </ResourceDictionary>

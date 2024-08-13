@@ -15,6 +15,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Game_Library.Models.Views;
 using System.IO;
+using System.Text.Json;
 
 namespace Game_Library
 {
@@ -34,17 +35,29 @@ namespace Game_Library
                 OnPropertyChanged();
             }
         }
-
+        private readonly JsonSerializerOptions _options = new()
+        {
+            PropertyNameCaseInsensitive = true
+        };
         private void load(ObservableCollection<GameObj> games)
         {
+            
             string current = Directory.GetCurrentDirectory();
-            StreamReader reader = new StreamReader(current + "/Games.txt");
-            while(reader.Peek() > -1)
+            try
             {
-                string line = reader.ReadLine();
-                string[] bits = line.Split("\t");
-                games.Add(new GameObj(bits[0], bits[1], bits[2], bool.Parse(bits[3])));
+                StreamReader reader = new StreamReader(current + "/Games.JSON");
+                var json = reader.ReadToEnd();
+                gameObjs = JsonSerializer.Deserialize<ObservableCollection<GameObj>>(json, _options);
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Continueing with Empty List");
+            }
+            
         }
         public MainWindow()
         {
@@ -155,11 +168,9 @@ namespace Game_Library
         private void saveGame_Click(object sender, RoutedEventArgs e)
         {
             string current = Directory.GetCurrentDirectory();
-            StreamWriter writer = new StreamWriter(current+"/Games.txt");
-            foreach (GameObj gameObj in GameObjs)
-            {
-                writer.WriteLine(gameObj);
-            }
+            StreamWriter writer = new StreamWriter(current+"/Games.JSON");
+            writer.Write(JsonSerializer.Serialize(GameObjs));
+            Console.WriteLine(JsonSerializer.Serialize(GameObjs));
             writer.Close();
         }
 

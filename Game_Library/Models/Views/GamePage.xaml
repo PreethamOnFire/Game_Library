@@ -11,7 +11,7 @@
     <ScrollViewer>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="250"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid>
@@ -19,14 +19,18 @@
                     <ColumnDefinition Width="250"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Image Source="{Binding SelectedGame.logoPath}" Height="200" Width="200"/>
+                <Border BorderThickness="8" BorderBrush="#5e43f3" Height="200" Width="200">
+                    <Image Source="{Binding SelectedGame.logoPath}" Height="200" Width="200"/>
+                </Border>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="{Binding SelectedGame.Name}"/>
-                    <Button Grid.Row="1" Name="playButton" Content="PLAY" Click="playButton_Click"/>
+                    <TextBlock Style="{StaticResource gameText}" Text="{Binding SelectedGame.Name}"/>
+                    <Button Grid.Row="1" Style ="{StaticResource playButton}" Name="playButton" Click="playButton_Click">
+                        <TextBlock Text="PLAY" Style="{StaticResource playButtonText}"/>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>
