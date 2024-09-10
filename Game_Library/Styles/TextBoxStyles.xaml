@@ -13,6 +13,12 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="BorderBrush" Value="#ba9ffb"/>
     </Style>
+    <Style x:Key="DescriptionEntry" TargetType="TextBox">
+        <Setter Property="Background" Value="#3f3f3f"/>
+        <Setter Property="Foreground" Value="#ba9ffb"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderBrush" Value="#ba9ffb"/>
+    </Style>
     <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#ba9ffb"/>
     <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#5e43f3"/>
     <ControlTemplate x:Key="TextBoxTemplate1" TargetType="{x:Type TextBoxBase}">

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Game_Library.Models.Views.EditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Game_Library.Models.Views"
+        mc:Ignorable="d"
+        Title="EditorWindow" Height="600" Width="450" Background="#282828">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="440"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Height="30" HorizontalAlignment="Left" Margin="15 0 15 0" Text="{Binding ScreenshotEntry.title}" TextChanged="TextBox_TextChanged"/>
+            
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Image Source="{Binding SelectedImage}"/>
+            <Button Name="AddImg"  Grid.Row="1" Style="{StaticResource addButton}" Height="30" Content="Add Image" HorizontalAlignment="Center" Click="AddImg_Click"/>
+        </Grid>
+        <TextBox Style="{StaticResource DescriptionEntry}" Text="{Binding ScreenshotEntry.description}" Grid.Row="2"/>
+    </Grid>
+</Window>

@@ -65,7 +65,7 @@ namespace Game_Library
             gameObjs = new ObservableCollection<GameObj>();
             load(gameObjs);
             InitializeComponent();
-            Main.Content = new Models.Views.MainMenu(GameObjs, this);
+            Main.Content = new MainMenu(GameObjs, this);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -139,7 +139,8 @@ namespace Game_Library
         }
         private void addGame(object sender, RoutedEventArgs e)
         {
-            GameObjs.Add(new GameObj(SelectedName,selectGamePath,SelectedImg));
+            ObservableCollection<screenshotNode> screenshotNodes = new ObservableCollection<screenshotNode>();
+            GameObjs.Add(new GameObj(SelectedName,selectGamePath,SelectedImg, screenshotNodes));
             SelectedName = "";
             SelectedImg = "";
             
@@ -170,13 +171,20 @@ namespace Game_Library
             string current = Directory.GetCurrentDirectory();
             StreamWriter writer = new StreamWriter(current+"/Games.JSON");
             writer.Write(JsonSerializer.Serialize(GameObjs));
-            Console.WriteLine(JsonSerializer.Serialize(GameObjs));
             writer.Close();
         }
 
         private void addGame_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            string current = Directory.GetCurrentDirectory();
+            StreamWriter writer = new StreamWriter(current + "/Games.JSON");
+            writer.Write(JsonSerializer.Serialize(GameObjs));
+            writer.Close();
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Game_Library"
         xmlns:userControls="clr-namespace:Game_Library.Models.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#282828">
+        Title="MainWindow" Height="450" Width="800" Background="#282828" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
