@@ -23,4 +23,8 @@
             </MultiTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
+
+    <Style TargetType="ListView">
+        <Setter Property="BorderBrush" Value="#ba9ffb"/>
+    </Style>
 </ResourceDictionary>

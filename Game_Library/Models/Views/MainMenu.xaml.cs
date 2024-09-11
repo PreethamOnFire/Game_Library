@@ -63,6 +63,21 @@ namespace Game_Library.Models.Views
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        private void delGame_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedGame != null)
+            {
+                menuGameObjs.Remove(SelectedGame);
+            }
+            else
+            {
 
+            }
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            mainWindowFrame.Main.Content = new GamePage(SelectedGame);
+        }
     }
 }

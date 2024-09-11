@@ -186,5 +186,15 @@ namespace Game_Library
             writer.Write(JsonSerializer.Serialize(GameObjs));
             writer.Close();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new GamePage(SelectedGame);
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Main.Content = new GamePage(SelectedGame);
+        }
     }
 }

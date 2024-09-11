@@ -46,6 +46,7 @@
 
     <Style TargetType="Border">
         <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="BorderBrush" Value="#ba9ffb"/>
     </Style>
     <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#004b23"/>
     <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#6ede8a"/>

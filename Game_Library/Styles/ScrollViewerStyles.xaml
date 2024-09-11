@@ -2,10 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style TargetType="ScrollViewer">
+        <Setter Property="BorderBrush" Value="#ba9ffb"/>
     </Style>
 
     <Style TargetType="ScrollBar">
-        <Setter Property="Background" Value="#8b8b8b"/>
+        <Setter Property="Background" Value="#ba9ffb"/>
         <Setter Property="Foreground" Value="#2f2b3a"/>
     </Style>
 

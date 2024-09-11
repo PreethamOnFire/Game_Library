@@ -41,6 +41,7 @@ namespace Game_Library.Models.Views
         }
 
 
+
         public GamePage(GameObj selectedGame)
         {
             DataContext = this;
@@ -67,6 +68,17 @@ namespace Game_Library.Models.Views
             {
                 SelectedGame.screenshotNodes.Remove(selectedNode);
             }
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Window Editor = new EditorWindow(selectedNode);
+            Editor.ShowDialog();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

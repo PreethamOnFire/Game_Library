@@ -8,26 +8,22 @@
       d:DesignHeight="450" d:DesignWidth="800" Background="#282828"
       Title="MainMenu">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
         <ScrollViewer Background="#282828" HorizontalScrollBarVisibility="Disabled" Template="{DynamicResource ScrollViewerTemplate1}">
-            <ListView Template="{DynamicResource ListViewTemplate1}" ItemsSource="{Binding MenuGameObjs}" SelectedItem="{Binding SelectedGame}" Background="#282828" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ListView Template="{DynamicResource ListViewTemplate1}" ItemsSource="{Binding MenuGameObjs}" SelectedItem="{Binding SelectedGame}" Background="#282828" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListView_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
                         <Border Height="230" Width="185" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
                             <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="170"/>
-                                        <RowDefinition Height="50"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="{Binding logoPath}" Width="170" Height="170"/>
-                                    <TextBlock Grid.Row="1" Text="{Binding Name}"/>
-                                </Grid>
-                            </Border>
-                        
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="170"/>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="{Binding logoPath}" Width="170" Height="170"/>
+                                <TextBlock Grid.Row="1" Text="{Binding Name}"/>
+                            </Grid>
+                        </Border>
+
                     </DataTemplate>
                 </ListView.ItemTemplate>
                 <ListView.ItemsPanel>
@@ -35,8 +31,13 @@
                         <WrapPanel MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ScrollViewer}}" Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
+                <ListView.ContextMenu>
+                    <ContextMenu Background="#282828">
+                        <MenuItem Header="Open" Click="GameSelected_Click"/>
+                        <MenuItem Header="Delete" Click="delGame_Click"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
             </ListView>
         </ScrollViewer>
-        <Button Grid.Row="1" Name="GameSelected" Click="GameSelected_Click" Content="Select"/>
     </Grid>
 </Page>

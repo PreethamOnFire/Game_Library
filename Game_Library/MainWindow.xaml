@@ -23,9 +23,6 @@
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="Game Library" HorizontalAlignment="Left" Padding="20"/>
-            <Button Template="{DynamicResource ButtonTemplate1}" Grid.Column="1" Content="Add" Width="80" Click="addGame_Click"/>
-            <Button Template="{DynamicResource ButtonTemplate1}" Name="delGame" Grid.Column="2" Content="Delete" Width="80" Click="delGame_Click"/>
-            <Button Template="{DynamicResource ButtonTemplate1}" Name="saveGame" Grid.Column="3" Content="Save" Width="80" Click="saveGame_Click"/>
         </Grid>
 
         <!-- Game List -->
@@ -37,7 +34,7 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <ScrollViewer Template="{DynamicResource ScrollViewerTemplate1}">
-                <ListView ItemsSource="{Binding GameObjs}" SelectedItem="{Binding SelectedGame}" Background="#282828">
+                <ListView ItemsSource="{Binding GameObjs}" SelectedItem="{Binding SelectedGame}" Background="#282828" SelectionChanged="ListView_SelectionChanged">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Height="30">
@@ -57,6 +54,12 @@
                             <StackPanel/>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
+                    <ListView.ContextMenu>
+                        <ContextMenu Background="#282828">
+                            <MenuItem Header="Open" Click="MenuItem_Click"/>
+                            <MenuItem Header="Delete" Click="delGame_Click"/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
                 </ListView>
             </ScrollViewer>
 
@@ -67,7 +70,7 @@
                     <RowDefinition Height="30*"/>
                     <RowDefinition Height="167*"/>
                 </Grid.RowDefinitions>
-                <Frame x:Name="Main" Grid.RowSpan="2"/>
+                <Frame x:Name="Main" Grid.RowSpan="2" NavigationUIVisibility="Hidden"/>
             </Grid>
 
             <!-- Adding Games Menu -->
@@ -76,13 +79,15 @@
                 <Grid>
                     <Grid Width="200">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="2*"/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition Height="140"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="70"/>
                         </Grid.RowDefinitions>
-                        <Image Source="{Binding SelectedImg}"/>
+                        <Border BorderThickness="4" BorderBrush="#5e43f3" Height="120" Width="120">
+                            <Image Source="{Binding SelectedImg}" />
+                        </Border>
                         <TextBox Template="{DynamicResource TextBoxTemplate1}" Grid.Row="1"  Text="{Binding SelectedName}"/>
                         <Button Template="{DynamicResource ButtonTemplate1}" Style="{StaticResource addButton}" Grid.Row ="2" Content="Pick Game Executable" Click="fileSelect_Click"/>
                         <Button Template="{DynamicResource ButtonTemplate1}" Style="{StaticResource addButton}" Grid.Row="3" Content="Pick Game Logo" Click="imgSelect_Click" />
