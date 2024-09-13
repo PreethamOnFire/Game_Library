@@ -196,5 +196,6 @@ namespace Game_Library
         {
             Main.Content = new GamePage(SelectedGame);
         }
+
     }
 }

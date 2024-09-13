@@ -69,7 +69,7 @@ namespace Game_Library.Models.Views
             if (success == true)
             {
                 ScreenshotEntry.imgPath = openFileDialog.FileName;
-                selectedImage = openFileDialog.FileName;
+                SelectedImage = openFileDialog.FileName;
             }
             else
             {
