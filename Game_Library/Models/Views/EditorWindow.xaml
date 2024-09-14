@@ -5,17 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game_Library.Models.Views"
         mc:Ignorable="d"
-        Title="EditorWindow" Height="600" Width="450" Background="#282828">
+        Title="EditorWindow" Height="600" Width="450" Background="#282828"
+        WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="440"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
             <TextBox Height="30" HorizontalAlignment="Left" Margin="15 0 15 0" Text="{Binding ScreenshotEntry.title}" TextChanged="TextBox_TextChanged"/>
-            
-        </StackPanel>
+            <Button Grid.Column="3" x:Name="Close" Content="X" Click="Close_Click" Style="{StaticResource WindowButtons}" Template="{DynamicResource ButtonTemplate1}"/>
+            <Button Grid.Column="2" x:Name="Max" Content="🗖" Click="Max_Click" Style="{StaticResource WindowButtons}" Template="{DynamicResource ButtonTemplate1}"/>
+            <Button Grid.Column="1" x:Name="Min" Content="-" Click="Min_Click" Style="{StaticResource WindowButtons}" Template="{DynamicResource ButtonTemplate1}"/>
+        </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>

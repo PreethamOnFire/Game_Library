@@ -6,38 +6,38 @@
       xmlns:local="clr-namespace:Game_Library.Models.Views"
       xmlns:space="clr-namespace:Game_Library.Models"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="600"
       Title="GamePage">
     <Page.Resources>
         <space:ImageTemplateSelector x:Key="ImgTempSelect"/>
         
         <DataTemplate x:Key="Traditional">
-            <Border Height="300" Width="185" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
+            <Border Height="350" Width="185" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
                         <RowDefinition Height="170"/>
+                        <RowDefinition Height="40"/>
                         <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="{Binding title}"/>
-                    <Image Grid.Row="1" Source="{Binding imgPath}" Width="170" Height="170"/>
-                    <TextBlock Grid.Row="2" Text="{Binding description}"/>
+                    <TextBlock Grid.Row="1" Text="{Binding title}" HorizontalAlignment="Left" Margin="10 15 0 0" FontSize="30"/>
+                    <Image Grid.Row="0" Source="{Binding imgPath}" Width="170" Height="170"/>
+                    <TextBlock Grid.Row="2" Text="{Binding description}"  HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top"/>
                 </Grid>
             </Border>
         </DataTemplate>
 
         <DataTemplate x:Key="16:9">
 
-            <Border Height="240" Width="426" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
+            <Border Height="350" Width="426" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
                         <RowDefinition/>
+                        <RowDefinition Height="40"/>
                         <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="{Binding title}"/>
-                    <Image Grid.Row="1" Source="{Binding imgPath}" Width="170" Height="170"/>
-                    <TextBlock Grid.Row="2" Text="{Binding description}"/>
+                    <TextBlock Grid.Row="1" Text="{Binding title}" HorizontalAlignment="Left" Margin="10 15 0 0" FontSize="30"/>
+                    <Image Grid.Row="0" Source="{Binding imgPath}"/>
+                    <TextBlock Grid.Row="2" Text="{Binding description}"  HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top"/>
                 </Grid>
             </Border>
 
@@ -53,7 +53,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="250"/>
-                    <ColumnDefinition MinWidth="480"/>
+                    <ColumnDefinition MinWidth="280"/>
                     <ColumnDefinition Width="60"/>
                 </Grid.ColumnDefinitions>
                 <Border BorderThickness="8" BorderBrush="#5e43f3" Height="200" Width="200">
@@ -74,12 +74,12 @@
                         <RowDefinition Height="40"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="0" Name="Back" Click="Back_Click" Content="Back" Height="30" Width="50" HorizontalAlignment="Right" Margin="0 0 10 0"/>
+                    <Button Grid.Row="0" Template="{DynamicResource ButtonTemplate1}" Name="Back" Click="Back_Click" Content="Back" Height="30" Width="50" HorizontalAlignment="Right" Margin="0 0 10 0"/>
 
                 </Grid>
             </Grid>
             <ListView Grid.Row="1" Background="#282828" ItemsSource="{Binding SelectedGame.screenshotNodes}" SelectedItem="{Binding SelectedNode}" ItemTemplateSelector="{Binding Source={StaticResource ImgTempSelect}}">
-                
+
                 <ListView.ContextMenu>
                     <ContextMenu Background="#282828">
                         <MenuItem Header="Add Entry" Click="AddEntry_Click" Background="#282828"/>
@@ -93,7 +93,7 @@
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
             </ListView>
-            <Button Grid.Row="1" Style="{StaticResource addButton}" Name="AddEntry" Click="AddEntry_Click" Content="+" VerticalAlignment="Bottom" Margin="0 0 10 10" HorizontalAlignment="Right" Width="40" Height="40"/>
+            <Button Grid.Row="1" Template="{DynamicResource ButtonTemplate1}" Style="{StaticResource addButton}" Name="AddEntry" Click="AddEntry_Click" Content="+" VerticalAlignment="Bottom" Margin="0 0 10 10" HorizontalAlignment="Right" Width="40" Height="40"/>
         </Grid>
     </ScrollViewer>
 </Page>
