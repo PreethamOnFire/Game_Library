@@ -53,6 +53,7 @@ namespace Game_Library.Models.Views
         {
             DataContext = this;
             ScreenshotEntry = screenshotNode;
+            selectedImage = screenshotEntry.imgPath;
             InitializeComponent();
         }
 

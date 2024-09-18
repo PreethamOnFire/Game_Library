@@ -22,10 +22,17 @@ namespace Game_Library.Models
                 double dimensions = imageSource.Width/imageSource.Height;
                 if (dimensions == 1)
                 {
-                    return element.FindResource("Traditional") as DataTemplate;
+                    if (G.imgPath == "C:\\Users\\madha\\source\\repos\\Game_Library\\Game_Library\\Assets\\Logo.png")
+                    {
+                        return element.FindResource("TextOnly") as DataTemplate;
+                    }
+                    else
+                    {
+                        return element.FindResource("Traditional") as DataTemplate;
+                    }
                 } else
                 {
-                    return element.FindResource("16:9") as DataTemplate;
+                    return element.FindResource("16:9") as DataTemplate;  
                 }
             }
             return null;

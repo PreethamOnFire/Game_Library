@@ -56,7 +56,8 @@ namespace Game_Library.Models.Views
 
         private async void AddEntry_Click(object sender, RoutedEventArgs e)
         {
-            screenshotNode newEntry = new screenshotNode("TITLE", "", "CONTENT");
+            DateTime _day = DateTime.Now;
+            screenshotNode newEntry = new screenshotNode("TITLE", "C:\\Users\\madha\\source\\repos\\Game_Library\\Game_Library\\Assets\\Logo.png", _day, "CONTENT");
             Window Editor = new EditorWindow(newEntry);
             Editor.ShowDialog();
             selectedGame.screenshotNodes.Add(newEntry);

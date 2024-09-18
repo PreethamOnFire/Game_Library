@@ -12,14 +12,21 @@
         <space:ImageTemplateSelector x:Key="ImgTempSelect"/>
         
         <DataTemplate x:Key="Traditional">
-            <Border Height="350" Width="185" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
+            <Border MinHeight="350" Width="185" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="170"/>
                         <RowDefinition Height="40"/>
-                        <RowDefinition Height="50"/>
+                        <RowDefinition MinHeight="50"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="1" Text="{Binding title}" HorizontalAlignment="Left" Margin="10 15 0 0" FontSize="30"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding title}" HorizontalAlignment="Left" Margin="10 15 0 0" FontSize="30"/>
+                        <TextBlock Grid.Column="1" Text="{Binding datePosted}"  HorizontalAlignment="Right" Margin="10 15 10 0" VerticalAlignment="Top" TextWrapping="WrapWithOverflow"/>
+                    </Grid>
                     <Image Grid.Row="0" Source="{Binding imgPath}" Width="170" Height="170"/>
                     <TextBlock Grid.Row="2" Text="{Binding description}"  HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top"/>
                 </Grid>
@@ -27,20 +34,45 @@
         </DataTemplate>
 
         <DataTemplate x:Key="16:9">
-
-            <Border Height="350" Width="426" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
+            <Border MinHeight="350" Width="426" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="40"/>
-                        <RowDefinition Height="50"/>
+                        <RowDefinition MinHeight="50"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="1" Text="{Binding title}" HorizontalAlignment="Left" Margin="10 15 0 0" FontSize="30"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding title}" HorizontalAlignment="Left" Margin="10 15 0 0" FontSize="30"/>
+                        <TextBlock Grid.Column="1" Text="{Binding datePosted}"  HorizontalAlignment="Right" Margin="10 15 10 0" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    </Grid>
                     <Image Grid.Row="0" Source="{Binding imgPath}"/>
                     <TextBlock Grid.Row="2" Text="{Binding description}"  HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top"/>
                 </Grid>
             </Border>
+        </DataTemplate>
 
+        <DataTemplate x:Key="TextOnly">
+            <Border Height="350" MinWidth="220" Margin="0 0 0 0" Padding="0" BorderBrush="#5e43f3" HorizontalAlignment="Left" Background="#1a1625" BorderThickness="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding title}" HorizontalAlignment="Left" Margin="10 15 0 0" FontSize="30"/>
+                        <TextBlock Grid.Column="1" Text="{Binding datePosted}"  HorizontalAlignment="Right" Margin="10 15 10 0" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                    </Grid>
+                    <TextBlock Grid.Row="1" Text="{Binding description}"  HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top"/>
+                </Grid>
+            </Border>
         </DataTemplate>
     </Page.Resources>
     

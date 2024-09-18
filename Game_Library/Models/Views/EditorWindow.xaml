@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="EditorWindow" Height="600" Width="450" Background="#282828"
         WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="1" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -31,7 +35,7 @@
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Image Source="{Binding SelectedImage}"/>
-            <Button Name="AddImg"  Grid.Row="1" Style="{StaticResource addButton}" Height="30" Content="Add Image" HorizontalAlignment="Center" Click="AddImg_Click"/>
+            <Button Name="AddImg"  Grid.Row="1" Style="{StaticResource addButton}" Template="{DynamicResource ButtonTemplate1}" Height="30" Content="Add Image" HorizontalAlignment="Center" Click="AddImg_Click"/>
         </Grid>
         <TextBox Style="{StaticResource DescriptionEntry}" Text="{Binding ScreenshotEntry.description}" Grid.Row="2"/>
     </Grid>

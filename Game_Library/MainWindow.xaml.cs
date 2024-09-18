@@ -37,9 +37,9 @@ namespace Game_Library
         }
         private readonly JsonSerializerOptions _options = new()
         {
-            PropertyNameCaseInsensitive = true
+            PropertyNameCaseInsensitive = true,
         };
-        private void load(ObservableCollection<GameObj> games)
+        private void load()
         {
             
             string current = Directory.GetCurrentDirectory();
@@ -47,7 +47,7 @@ namespace Game_Library
             {
                 StreamReader reader = new StreamReader(current + "/Games.JSON");
                 var json = reader.ReadToEnd();
-                gameObjs = JsonSerializer.Deserialize<ObservableCollection<GameObj>>(json, _options);
+                GameObjs = JsonSerializer.Deserialize<ObservableCollection<GameObj>>(json, _options);
             }
             catch (Exception e)
             {
@@ -63,7 +63,9 @@ namespace Game_Library
         {
             DataContext = this;
             gameObjs = new ObservableCollection<GameObj>();
-            load(gameObjs);
+            load();
+            SelectedName = "TITLE";
+            SelectedImg = "C:\\Users\\madha\\source\\repos\\Game_Library\\Game_Library\\Assets\\Logo.png";
             InitializeComponent();
             Main.Content = new MainMenu(GameObjs, this);
         }
@@ -141,13 +143,12 @@ namespace Game_Library
         {
             ObservableCollection<screenshotNode> screenshotNodes = new ObservableCollection<screenshotNode>();
             GameObjs.Add(new GameObj(SelectedName,selectGamePath,SelectedImg, screenshotNodes));
-            SelectedName = "";
-            SelectedImg = "";
-            
+            SelectedName = "TITLE";
+            SelectedImg = "C:\\Users\\madha\\source\\repos\\Game_Library\\Game_Library\\Assets\\Logo.png";
             Main.Refresh();
             
         }
-
+        
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -170,7 +171,7 @@ namespace Game_Library
         {
             string current = Directory.GetCurrentDirectory();
             StreamWriter writer = new StreamWriter(current+"/Games.JSON");
-            writer.Write(JsonSerializer.Serialize(GameObjs));
+            writer.Write(JsonSerializer.Serialize(GameObjs, _options));
             writer.Close();
         }
 
