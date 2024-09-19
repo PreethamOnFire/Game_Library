@@ -1,3 +1,2 @@
 # Game Library Launcher - WPF Application
-!["This is a simple Logo"](\Game_Library\Assets\Logo.png "Logo")
-
+![Logo](https://github.com/user-attachments/assets/41294885-7191-452f-97f9-4ab65d3a8706)
