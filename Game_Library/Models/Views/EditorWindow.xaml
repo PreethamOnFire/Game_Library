@@ -37,6 +37,6 @@
             <Image Source="{Binding SelectedImage}"/>
             <Button Name="AddImg"  Grid.Row="1" Style="{StaticResource addButton}" Template="{DynamicResource ButtonTemplate1}" Height="30" Content="Add Image" HorizontalAlignment="Center" Click="AddImg_Click"/>
         </Grid>
-        <TextBox Style="{StaticResource DescriptionEntry}" Text="{Binding ScreenshotEntry.description}" Grid.Row="2"/>
+        <TextBox Style="{StaticResource DescriptionEntry}" Text="{Binding ScreenshotEntry.description}" Grid.Row="2" TextWrapping="Wrap"/>
     </Grid>
 </Window>
